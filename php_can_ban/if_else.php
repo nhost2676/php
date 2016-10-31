@@ -5,7 +5,14 @@
 </head>
 <body>
 	<?php
-		
+	/* Cấu trúc chung 
+		if (condition){
+			lệnh.....}
+		elseif(condition){
+			lệnh.....}
+		........
+		else {}
+	*/
 		$a = 1; 
 		$b = -9;
 		$c = 18;
