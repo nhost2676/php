@@ -1,0 +1,20 @@
+<?php
+Phương thức Post trong PHP:
+1./ Phương thức POST có tính bảo mật hơn vì dữ liệu gửi phải thông qua một form HTML nên nó bị ẩn,
+nghĩa là chúng ta không thể thấy các giá trị đó được.
+
+2./ Client Gửi Lên
+Với phương thức GET thì dữ liệu được thấy trên URL thì phương thức POST thì hoàn toàn ngược lại,
+POST sẽ gửi dữ liệu qua một cái form HTML và các giá trị sẽ được định
+nghĩa trong các input gồm các kiểu (textbox, radio, checkbox, password, textarea, hidden)
+và được nhận dang thông qua tên (name) của các input đó.
+
+3./ Server nhận dữ liệu
+Tất cả các dữ liệu gửi bằng phương thức POST đều được lưu trong một biến toàn cục $_POST do PHP tự tạo ra,
+vì thế để lấy dữ liệu thì bạn chỉ cần lấy trong biến này là được.
+Cũng như lưu ý với các bạn là trước khi lấy phải dùng hàm isset($bien) để kiểm tra có hay không .
+
+if (isset($_POST['id'])){
+    $id = $_POST['id'];
+}
+?>
