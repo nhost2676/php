@@ -1,0 +1,14 @@
+1. Mở file
+Để mở một file ta dùng cú pháp sau: open($path, $option).
+Trong đó $path là đường dẫn đến file cần mở, $option là quyền cho phép thao tác trên file.
+
+2. 2. Đọc file
+Có 3 cách đọc file thông thường trong PHP đó là đọc từng dòng, đọc từng ký tự và đọc hết file.
+Ta dùng hàm fgetc($fp) để đọc theo từng ký tự, dùng fgets($fp) để đọc theo từng dòng. Đối với đọc từng dòng và đọc từng ký tự ta phải dùng hàm feof($fp)
+đặt trong vòng lặp while để sau khi đọc xong nó sẽ chuyển sang dòng mới hoặc ký tự mới.
+Để đọc hết tất cả file ta dùng hàm fread($fp, $size), trong đó $fp là đối tượng lúc mở file còn $size là kích cỡ của file cần đọc. Để lấy kích cỡ của file cần đọc ta dùng hàm filesize($path)
+3. Ghi file
+Để ghi nội dung vào file ta dùng hàm fwrite($fp, $content) trong đó $fp là đối tượng trả về lúc mở file, còn $content là nội dung muốn ghi vào.
+Việc ghi file phụ thuộc vào lúc bạn mở file như thế nào.
+Ví dụ lúc bạn mở file ghi đè thì lúc ghi file nó sẽ ghi đè, lúc bạn mở file ghi kiểu append thì lúc ghi file nó sẽ thêm xuống cuối file,
+nếu bạn mở file chỉ cho đọc thì bạn không thể ghi file được.
