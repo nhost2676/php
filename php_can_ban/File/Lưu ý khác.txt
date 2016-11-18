@@ -1,0 +1,70 @@
+5 Các hàm xử lý file khác
+Sau đây là một số hàm xử lý file khác.
+ A>Kiểm tra file có tồn tại không
+    Ta dùng hàm file_exists($path), trong đó $path là đường dẫn đến file cần kiểm tra, ví dụ:
+
+                  if (file_exists('demo.txt'))
+                  {
+                      echo 'File tồn tại';
+                      }
+
+ B>Kiểm tra file có được cấp quyền ghi không
+    dùng hàm is_writable ($path) trong đó $path là đường dẫn đến file cần kiểm tra .
+      Ví dụ:
+
+                    $fp = @fopen('demo.txt', "w");
+
+                    // Kiểm tra file mở thành công không
+                    if (!$fp) {
+                    echo 'Mở file không thành công';
+                    }
+                    else
+                    {
+                    if (is_writable ('demo.txt')){
+                        fwrite($fp, 'Welcome');
+                        }
+                        fclose($fp);
+                        }
+ C>Lấy nội dung một file mà không cần dùng hàm fread
+    Ta dùng hàm  file_get_contents($path) để lấy nội dung của một file,
+    trong đó $path là đường dẫn đến file cần lấy. $path có thể là đường link đến một trang web trên internet thì nó
+    sẽ trả về nội dung html của trang web đó.
+
+    Ví dụ:
+
+                // Lấy nội dung file txt
+                echo file_get_contents('demo.txt');
+
+                // Lấy nội dung đường link http://www.freetuts.net
+                echo file_get_contents('http://www.freetuts.net');
+  D>Ghi nội dung file mà không cần dùng hàm fwrite
+    Trước khi dùng hàm này bạn nên dùng hàm is_writable để kiểm tra file có được phép ghi không.
+    Ta dùng hàm file_put_contents($path, $noidung) để ghi nội dung cho một file, trong đó $path là đường dẫn đến file cần ghi,
+    $noidung là nội dung bạn muốn ghi vào file.
+
+    Ví dụ:
+        file_put_contents('demo.txt', 'noi dung');
+
+  E>Đổi tên file
+    Để đổi tên file ta dùng hàm rename($oldname, $newname),
+    trong đó $oldname là đường dẫn đến file cần đổi tên, $newname là đường dẫn mới có kèm tên file cần đổi .
+    Nếu bạn chỉ muốn đổi tên thôi thì đường dẫn của cả 2 biến giống nhau, chỉ khác nhau ở cái tên file.
+    Nếu tên file mới bị trùng thì file đó sẽ bị ghi đè.
+
+    Ví dụ:
+      rename('demo.txt', 'demo2.txt');
+
+  F>Copy file
+    Để copy sang file mới ta dùng hàm copy($source, $dest), trong đó $source là path file cần copy và $dest là path file cần di chuyển tới.
+    Nếu bạn muốn đổi luôn tên thì đường dẫn $dest bạn khai báo một cái tên khác.
+          if (!copy('demo2.txt', 'demo3.txt'))
+          {
+            echo 'Copy thất bại';
+            }
+  G>Xóa file
+    Ta dùng hàm unlink($path) để xóa file, trong đó $path là đường dẫn đến file cần xóa, ví dụ:
+
+          if (file_exists('demo.txt'))
+          {
+            unlink('demo.txt');
+            }
